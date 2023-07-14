@@ -162,3 +162,12 @@ Simply run `npm run lint`
 
 1. Run `npm start`
 1. To break out of the server, press `ctrl` + `c`
+
+*****CODE PLAN*****
+
+1. Use pop method to remove the top block from end of selected stack array, saving it to a variable.
+2. Use push to add saved block variable to the next selected stack array.
+
+3. Test for illegal moves by using if/else statement to find if selected block is bigger or smaller than block at the top of next stack.
+
+4. Check for win by using if/else to find if either stack b or c has a full array of 4 blocks.

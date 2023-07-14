@@ -39,10 +39,15 @@ const movePiece = (startStack, endStack) => {
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
 const isLegal = (startStack, endStack) => {
   // Your code here
-  if (stacks[startStack][stacks[startStack].length - 1] > stacks[endStack][stacks[endStack].length - 1]) {
-    return false;
+  if ((startStack == 'a' || startStack == 'b' || startStack == 'c') && 
+  (endStack == 'a' || endStack == 'b' || endStack == 'c')) {
+    if ((stacks[startStack][stacks[startStack].length - 1] > stacks[endStack][stacks[endStack].length - 1])) {
+      return false;
+    } else {
+     return true;
+    }
   } else {
-    return true;
+    return false;
   }
 }
 
@@ -59,6 +64,8 @@ const checkForWin = () => {
 // When is this function called? What should it do with its argument?
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  startStack = startStack.toLowerCase().trim()
+  endStack = endStack.toLowerCase().trim()
   if (isLegal(startStack, endStack)) {
     movePiece(startStack, endStack)
     checkForWin()
@@ -70,7 +77,11 @@ const getPrompt = () => {
   rl.question('start stack: ', (startStack) => {
     rl.question('end stack: ', (endStack) => {
       towersOfHanoi(startStack, endStack);
-      getPrompt();
+      if (checkForWin()) {
+        console.log('Congratulations! You Win!')
+      } else {
+        getPrompt();
+      }
     });
   });
 }
