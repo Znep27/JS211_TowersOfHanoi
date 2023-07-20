@@ -42,21 +42,21 @@
 }
 
 [data-color="green"] {
-  height: 33px;
+  height: 38px;
   background-color: green;
 }
 
 [data-color="red"] {
-  height: 33px;
+  height: 44px;
   background-color: red;
 }
 
 [data-color="yellow"] {
-  height: 33px;
+  height: 51px;
   background-color: yellow;
 }
 
 #announce-game-won {
-  font-size: 50px;
+  font-size: 59px;
   text-align: center;
 }

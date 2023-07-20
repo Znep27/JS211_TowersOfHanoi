@@ -7,7 +7,7 @@
 // * Why are you get a warning in your console? Fix it.
 // * Delete these comment lines!
 
-const stone = null
+let stone = null
 
 // this function is called when a row is clicked. 
 // Open your inspector tool to see what is being captured and can be used.
@@ -17,8 +17,11 @@ const selectRow = (row) => {
   console.log("Yay, we clicked an item", row)
   console.log("Here is the stone's id: ", row.id)
   console.log("Here is the stone's data-size: ", currentRow)
-
-  pickUpStone(row.id)
+  if (stone == null) {
+    pickUpStone(row.id)
+  } else {
+    dropStone(row.id)
+  }
 } 
 
 // this function can be called to get the last stone in the stack
@@ -33,7 +36,7 @@ const pickUpStone = (rowID) => {
 // Once you figure that out you'll need to figure out if its a legal move...
 // Something like: if(!stone){pickupStone} else{dropStone}
 
-const dropStone = (rowID, stone) => {
+const dropStone = (rowID) => {
   document.getElementById(rowID).appendChild(stone)
   stone = null
 }
